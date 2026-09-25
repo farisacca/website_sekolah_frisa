@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('tanggal');
             $table->enum('status',['draf','publis']);
             $table->string('gambar', 100)->nullable();
-            $table->uuid('id_user');
-            $table->foreign('id_user')->references('id_user')->on('user')->onUpdate('cascade')->onDelete('restrict');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id_users')->on('user')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
     }
